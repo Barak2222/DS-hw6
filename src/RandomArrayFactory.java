@@ -28,6 +28,11 @@ public class RandomArrayFactory {
 			System.out.print(arr[i] + " ");
 		}
 	}
+	public static void printArr(int[] arr){
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+	}
 	
 	
 	public static void test(Sorter obj){
@@ -38,8 +43,17 @@ public class RandomArrayFactory {
 		RandomArrayFactory.printArr(arr);
 	}
 	
+	public static void test(Selector obj){
+		double[] arr = RandomArrayFactory.getRandomArray(10);
+		RandomArrayFactory.printArr(arr);
+		System.out.println();
+		double d = obj.select(arr, 10);
+		System.out.println(d);
+	}	
+	
 	public static void main(String[] args){
-		Sorter obj = new InsertionSort();
+		//Sorter obj = new RadixSort();
+		Selector obj = new RandSelect();
 		test(obj);
 	}
 }
