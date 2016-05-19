@@ -23,37 +23,4 @@ public class RandomArrayFactory {
 	    return (double) tmp / factor;
 	}
 	
-	public static void printArr(double[] arr){
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");
-		}
-	}
-	public static void printArr(int[] arr){
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");
-		}
-	}
-	
-	
-	public static void test(Sorter obj){
-		double[] arr = RandomArrayFactory.getRandomArray(10);
-		RandomArrayFactory.printArr(arr);
-		System.out.println();
-		obj.sort(arr);
-		RandomArrayFactory.printArr(arr);
-	}
-	
-	public static void test(Selector obj){
-		double[] arr = RandomArrayFactory.getRandomArray(10);
-		RandomArrayFactory.printArr(arr);
-		System.out.println();
-		double d = obj.select(arr, 10);
-		System.out.println(d);
-	}	
-	
-	public static void main(String[] args){
-		//Sorter obj = new RadixSort();
-		Selector obj = new RandSelect();
-		test(obj);
-	}
 }
