@@ -18,7 +18,7 @@ public class QuickSort implements Sorter{
 			return ;
 		}
 		int pivot = partition(arr, low, high);
-		rec(arr, low, pivot);
+		rec(arr, low, pivot -1);
 		rec(arr, pivot + 1, high);
 	}
 	
@@ -53,14 +53,14 @@ public class QuickSort implements Sorter{
 		arr[right] = temp;
 		return right;
 	}
-	
-	public static void main(String[] args){
-		//double[] a = {0.33, 0.2, 0.4, 0.6, 0.5, 0.1, 0.0, 0.45, 0.77, 0.12};
-		double[] a = {0.2, 0.4, 0.6};
+
+	/*public static void main(String[] args){
+		double[] a = {0.33, 0.2, 0.4, 0.6, 0.5, 0.1, 0.0, 0.45, 0.77, 0.12};
+		//double[] a = {0.2, 0.4, 0.6};
 		System.out.println(partition(a, 0, a.length-1));
 		for (int i = 0; i < a.length; i++) {
 			System.out.print(a[i] + " ");
 		}
-	}
+	}*/
 
 }

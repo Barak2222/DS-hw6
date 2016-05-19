@@ -15,9 +15,9 @@ public class RandSelect implements Selector{
 		}
 		
 		int pivot = QuickSort.partition(arr, low, high);
-		RandomArrayFactory.printArr(arr);
-		System.out.println();
-		System.out.println("pivot at index: " + pivot + " rank needed: " + rank);
+		//RandomArrayFactory.printArr(arr);
+		//System.out.println();
+		//System.out.println("pivot at index: " + pivot + " rank needed: " + rank);
 		if(pivot == rank){
 			return arr[pivot];
 		}
