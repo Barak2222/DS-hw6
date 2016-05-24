@@ -1,4 +1,4 @@
 
-public interface Selector  {
+public interface Selector {
 	double select(double[] ar, int i);
 }
