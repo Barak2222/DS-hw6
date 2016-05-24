@@ -1,15 +1,36 @@
 
+import java.text.DecimalFormat;
+
 public class RadixSort implements Sorter{
 
 	@Override
 	public void sort(double[] ar) {
+		String[] strs = getStringArr(ar);
+				
 		for (int i = 10; i > 0; i--) {
-			countingSort(ar, i);
+			countingSort(strs, i);
+		}
+		for (int i = 0; i < strs.length; i++) {
+			ar[i] = Double.parseDouble(strs[i]);
 		}
 		
 	}
 	
-	private static void countingSort(double[] arr, int digit){
+	private static String[] getStringArr(double[] arr){
+		String[] strs = new String[arr.length];
+		DecimalFormat df = new DecimalFormat("#");
+        df.setMaximumFractionDigits(10);
+        
+		for (int i = 0; i < strs.length; i++) {
+	        strs[i] = df.format(arr[i]);
+			while(strs[i].length() < 12){
+				strs[i]+= "0";
+			}
+		}
+		return strs;
+	}
+	
+	private static void countingSort(String[] arr, int digit){
 		int[] c = new int[10];
 		for(int i = 0; i < arr.length; i ++){
 			int index = getDigit(arr[i], digit);
@@ -19,7 +40,7 @@ public class RadixSort implements Sorter{
 		for (int i = 1; i < c.length; i++) {
 			c[i]+=c[i-1];
 		}
-		double[] sorted = new double[arr.length];
+		String[] sorted = new String[arr.length];
 		for (int i = arr.length - 1; i >= 0; i--) {
 			int index = getDigit(arr[i], digit);
 			sorted[c[index] - 1] = arr[i];
@@ -31,11 +52,9 @@ public class RadixSort implements Sorter{
 	}
 	
 	
-	private static int getDigit(double num, int digit){
-		num = num * Math.pow(10, digit);
-		num = num % 10;
-		num = Math.floor(num);
-		return (int) num;
+	private static int getDigit(String num, int digit){
+		return (int) (num.charAt(digit+1) - '0');
 	}
 
+	
 }
